@@ -9,5 +9,6 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         Instantiate(enemyPrefab);
+        transform.Rotate(Vector3.left);
     }
 }
