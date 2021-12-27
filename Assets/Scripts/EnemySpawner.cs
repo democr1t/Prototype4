@@ -2,13 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab; 
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private EnemyMover _enemyPrefab;
 
-    private void Update()
+    [SerializeField] private float _startDelay = 3;
+    [SerializeField] private float _spawnInterval = 10;
+
+    private Vector3 _spawnPos;
+
+    private void Start()
     {
-        Instantiate(enemyPrefab);
-        transform.Rotate(Vector3.left);
+        InvokeRepeating(nameof(SpawnEnemies), _startDelay, _spawnInterval);
+    }
+
+    private void SpawnEnemies()
+    {
+        EnemyMover enemy = Instantiate(_enemyPrefab, transform);
+        enemy.SetPlayerTransform(_playerTransform);
     }
 }
