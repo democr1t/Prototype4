@@ -8,25 +8,27 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private EnemyMover _enemyPrefab;
-
-    [SerializeField] private int _currentEnemiesCount;
-    [SerializeField] private int _waveNumber = 1;
+    [SerializeField] public int CurrentCount { get; private set; }
+    [SerializeField] public int WaveNumber { get; private set; }
     private Vector3 _spawnOffset;
 
-    public UnityEvent OnLastEnemyDestroyed;
+    private void Start()
+    {
+        WaveNumber = 1;
+    }
 
     private void Update()
     {
-        _currentEnemiesCount = FindObjectsOfType<EnemyMover>().Length;
+        CurrentCount = FindObjectsOfType<EnemyMover>().Length;
 
-        if (_currentEnemiesCount == 0)
+        if (CurrentCount == 0)
         {
-            SpawnEnemies(_waveNumber);
-            _waveNumber++;
+            Spawn(WaveNumber);
+            WaveNumber++;
         }
     }
 
-    public void SpawnEnemies(int enemiesCount)
+    public void Spawn(int enemiesCount)
     {
         for (int i = 0; i < enemiesCount; i++)
         {

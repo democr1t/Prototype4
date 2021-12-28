@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTranform: {fileID: 0}
-  _movespeed: 5
+  _movespeed: 10
   _rigidBody: {fileID: 3959818002329262359}
 --- !u!114 &405944586675479933
 MonoBehaviour:

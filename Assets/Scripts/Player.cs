@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public bool HasPowerup { get; private set; }
     private Rigidbody _enemyRigidbody;
     private Vector3 _awayFromPlayer;
-    private float _pushStrenght = 1000;
+    private float _pushStrenght;
     [SerializeField] GameObject _powerupIndicator;
     
     private void OnTriggerEnter(Collider other)
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
             HasPowerup = true;
             Destroy(other.gameObject);
             _powerupIndicator.SetActive(true);
+            _pushStrenght = Powerup.Power;
             StartCoroutine(PowerupCountdown());
         }
     }
