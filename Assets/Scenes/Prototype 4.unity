@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546036214}
   - component: {fileID: 1546036215}
+  - component: {fileID: 1546036216}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -787,6 +788,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 979723113}
   _enemyPrefab: {fileID: 7287967740960758566, guid: 009e9b59842e745428619c3433265c9b, type: 3}
+  _positionGenerator: {fileID: 1546036216}
+--- !u!114 &1546036216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546036213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a1f104ca927354481675e2fe33b438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1733313644
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1733313646}
   - component: {fileID: 1733313645}
+  - component: {fileID: 1733313647}
   m_Layer: 0
   m_Name: PowerupSpawner
   m_TagString: Untagged
@@ -818,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5778213509623761696, guid: 56ea3b90d587ffc41b450e74e9e01538, type: 3}
   _enemySpawner: {fileID: 1546036215}
+  _positionGenerator: {fileID: 1733313647}
 --- !u!4 &1733313646
 Transform:
   m_ObjectHideFlags: 0
@@ -832,6 +848,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733313647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733313644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a1f104ca927354481675e2fe33b438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7305732181041295649
 PrefabInstance:
   m_ObjectHideFlags: 0

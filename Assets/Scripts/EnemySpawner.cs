@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyMover _enemyPrefab;
     [SerializeField] public int CurrentCount { get; private set; }
     [SerializeField] public int WaveNumber { get; private set; }
-    private Vector3 _spawnOffset;
+    private Vector3 _spawnPos;
+    [SerializeField] private PositionGenerator _positionGenerator;
 
     private void Start()
     {
@@ -32,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemiesCount; i++)
         {
-            _spawnOffset = new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5));
-            EnemyMover enemy = Instantiate(_enemyPrefab, transform.position + _spawnOffset, transform.rotation);
+            _spawnPos = _positionGenerator.Generate();
+            EnemyMover enemy = Instantiate(_enemyPrefab,_spawnPos, transform.rotation);
             enemy.SetPlayerTransform(_playerTransform);
         }
     }
